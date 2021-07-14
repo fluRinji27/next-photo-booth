@@ -51,7 +51,8 @@ export async function getStaticProps() {
                 subtitle: '2м x 1.5м x 2 м',
                 images: ['room', 'room', 'room', 'room', 'room'],
                 options,
-                price: 17000
+                price: 17000, // rub
+                totalTime: 1 // hour
             })
         }
         return result
