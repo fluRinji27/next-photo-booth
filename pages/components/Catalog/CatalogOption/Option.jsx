@@ -2,28 +2,30 @@ import React, {useEffect, useState} from 'react'
 import {List} from "react-virtualized";
 import OptionsItem from './OptionsItem'
 
-import style from '/styles/Catalog/CatalogOptions.module.scss'
+import styles from '/styles/Catalog/CatalogOptions.module.scss'
 
 
-const Option = ({options, setChecked}) => {
+const Option = ({calcPrice, options, setChecked}) => {
     const [optionsData, setOptionsData] = useState(options)
     const [isLoaded, setLoaded] = useState(false)
 
     const checkedHandler = item => {
         setOptionsData(() => optionsData.map(el => {
             if (item === el) {
+                calcPrice(el.price, !el.isChecked)
                 return {...el, isChecked: !el.isChecked}
             }
             return el
         }))
     }
 
-    const Row = ({index, isScrolling, key, style}) => (
-        <OptionsItem
-            key={key} styles={style}
-            handler={checkedHandler}
-            option={optionsData[index]}
-        />
+    const Row = ({index, key, style}) => (
+        <div key={key} style={style} className={styles.item}>
+            <OptionsItem
+                handler={checkedHandler}
+                option={optionsData[index]}
+            />
+        </div>
     )
 
     useEffect(() => {
@@ -37,13 +39,13 @@ const Option = ({options, setChecked}) => {
     }, [optionsData])
 
     return (
-        <div className={style.options}>
-            <h6 className={style.options__title}>Доп.опции</h6>
+        <div className={styles.options}>
+            <h6 className={styles.title}>Доп.опции</h6>
             {optionsData &&
 
             <List
-                className={style.options__list}
-                rowCount={20}
+                className={styles.list}
+                rowCount={optionsData.length}
                 width={300}
                 height={180}
                 rowHeight={90}
