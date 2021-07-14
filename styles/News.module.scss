@@ -1,0 +1,80 @@
+@import "_mixins";
+@import "_variables";
+
+.news {
+  @include sourseSans(12px, 500, 14px, 0);
+  color: #131313;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0 8px;
+}
+
+.item {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  margin-bottom: 20px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.image {
+  width: 100%;
+  height: 330px;
+  position: relative;
+  margin-top: 20px;
+}
+
+.info {
+  padding: 20px 8px;
+  position: relative;
+  background-color: #FAFAFA;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -30px;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 30px solid #FAFAFA;
+    background-color: transparent;
+    left: 30px;
+  }
+}
+
+.preTitle {
+  color: $red;
+  font-weight: 500;
+  line-height: 14px;
+  padding-bottom: 4px;
+}
+
+.title {
+  padding-bottom: 8px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 23px;
+}
+
+.shortText {
+  padding-bottom: 20px;
+}
+
+.date {
+  color: #6A6A6A;
+}
+
+.button {
+  cursor: pointer;
+  @include robotoRegular(18px, 700, 18px, 0);
+  padding: 11px;
+  color: #EE3D48;
+  border: 1px solid #EE3D48;
+  box-sizing: border-box;
+  border-radius: 6px;
+  background-color: transparent;
+}
