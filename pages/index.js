@@ -4,8 +4,10 @@ import Advantages from "./components/Advantages/Advantages";
 import Header from "./components/Header/Header";
 import Video from "./components/Video/Video";
 import Catalog from "./components/Catalog/Catalog";
+import Faq from "./components/Faq/Faq";
+import News from "./components/News/News";
 
-function App({initialData}) {
+function App({initialProdData, initialNewsData}) {
 
     const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -23,14 +25,16 @@ function App({initialData}) {
                 setIsModalOpen={setIsModalOpen}
             />
             <Advantages/>
-            <Catalog initialData={initialData}/>
+            <Catalog initialData={initialProdData}/>
+            <Faq/>
+            <News initialNewsData={initialNewsData}/>
         </div>
     )
 }
 
 export async function getStaticProps() {
     // mok data generator
-    const genDataArr = count => {
+    const genProdDataArr = count => {
         const result = []
         for (let i = 0; i < count; i++) {
             const options = []
@@ -57,10 +61,27 @@ export async function getStaticProps() {
         }
         return result
     }
+    const genNewsDataArr = count => {
+        const result = []
+        for (let i = 0; i < count; i++) {
+            result.push({
+                id: i + 1,
+                category: 'Фотобудка',
+                date: JSON.stringify(new Date()),
+                images: ['man', 'photo', 'man', 'photo', 'photo'],
+                title: ' Фотобудка с ширмой',
+                shortText: 'У нас есть широчайший ассортимент фотобудок на все случаи жизни',
+                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+            })
+        }
+        return result
+    }
 
-    const initialData = genDataArr(20)
+    const initialProdData = genProdDataArr(2)
+    const initialNewsData = genNewsDataArr(20)
+
     return {
-        props: {initialData}
+        props: {initialProdData, initialNewsData}
     }
 }
 
