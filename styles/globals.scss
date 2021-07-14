@@ -10,7 +10,6 @@ body {
 .App {
   max-width: 375px;
   margin: 0 auto;
-  overflow: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -25,6 +24,12 @@ body {
   &__h2 {
     @include robotoSlab(32px, 700, 30px, 0);
   }
+}
+
+.preTitle {
+  margin-bottom: 5px;
+  @include sourseSans(16px, 400, 19px, 1.3px);
+  color: $red;
 }
 
 .wrapper {
