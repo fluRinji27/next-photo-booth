@@ -3,41 +3,70 @@
 
 .item {
   margin-right: 0;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
 
-  &__title {
-    margin-top: 16px;
-    @include sourseSans(20.6px, 600, 23px, .2px);
+}
+
+.title {
+  margin-top: 16px;
+  @include sourseSans(20.6px, 600, 23px, .2px);
+}
+
+.subtitle {
+  margin-top: 10px;
+  @include sourseSans(12px, 400, 14px, .3px);
+
+  span {
+    color: $gray;
   }
+}
 
-  &__subtitle {
-    margin-top: 10px;
-    @include sourseSans(12px, 400, 14px, .3px);
+.timeChoice {
+  @include sourseSans(12px, 400, 18px, 0);
+  border-bottom: 1px solid #FAFAFA;
+}
 
-    span {
-      color: $gray;
-    }
-  }
+.timeChoiceTitle {
+  color: $gray;
+  margin-top: 10px;
+  font-size: 14px;
+}
 
-  &__time-choice {
-  }
+.timeChoiceList {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  &__time {
-  }
+.timeChoiceItem {
+  border-radius: 6px;
+  background-color: #F1F2F2;
+  padding: 4px 12px;
+  margin: 8px;
+}
 
-  &__order {
-  }
+.timeChoiceItemActive {
+  background-color: $red;
+  color: #ffffff;
+}
 
-  &__price {
-    @include robotoSlab(32px, 500, 42px, 0);
-    color: $black;
-  }
+.order {
+  display: flex;
+  justify-content: space-around;
+  align-self: flex-end;
+  padding: 12px 0;
+}
 
-  &__btn {
-    @include robotoRegular(18px, 700, 21px, 0);
-    color: white;
-    border: 1px solid transparent;
-    background-color: #EE3D48;
-    border-radius: 6px;
+.price {
+  @include robotoSlab(32px, 500, 42px, 0);
+  color: $black;
+}
 
-  }
+.btn {
+  @include robotoRegular(18px, 700, 21px, 0);
+  color: white;
+  border: 1px solid transparent;
+  background-color: #EE3D48;
+  border-radius: 6px;
+
 }
