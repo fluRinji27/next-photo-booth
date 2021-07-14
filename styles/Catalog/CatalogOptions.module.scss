@@ -8,6 +8,7 @@
 .title {
   display: inline;
   @include sourseSans(13px, 600, 14px, 1px);
+  background-color: $lightGray;
   color: $red;
   padding: 0 4px;
   border-bottom: 1px solid $red;
@@ -16,7 +17,7 @@
 .list {
   height: 150px;
   overflow-y: scroll;
-  background-color: #FAFAFA;
+  background-color: $lightGray;
 
   &::-webkit-scrollbar {
     width: 3px;
