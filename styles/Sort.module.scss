@@ -5,22 +5,25 @@
   display: flex;
   align-items: center;
   margin-top: 1.7em;
-  @include sourseSans(14px,400,16.42px,0);
-
-
+  @include sourseSans(14px, 400, 16.42px, 0);
 
   &__label {
   }
 
   &__list {
+    background-color: transparent;
     color: $gray;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 7.8em;
+    width: 9em;
     margin-left: 5px;
     border: none;
     appearance: none;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &__item {
