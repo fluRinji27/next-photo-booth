@@ -20,7 +20,12 @@ const Option = ({calcPrice, options, setChecked}) => {
     }
 
     const Row = ({index, key, style}) => (
-        <div key={key} style={style} className={styles.item}>
+        <div
+            key={key}
+            style={style}
+            className={styles.item}
+            onClick={() => checkedHandler(optionsData[index])}
+        >
             <OptionsItem
                 handler={checkedHandler}
                 option={optionsData[index]}
