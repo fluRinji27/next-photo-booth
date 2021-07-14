@@ -11,6 +11,10 @@ body {
   max-width: 375px;
   margin: 0 auto;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   &_theme_overflow_hidden {
     overflow: hidden;
@@ -24,7 +28,7 @@ body {
 }
 
 .wrapper {
-  margin: 0 8px;
+  padding: 0 8px;
 }
 
 .main {
@@ -83,7 +87,8 @@ body {
 .ReactVirtualized__Grid {
   width: 99% !important;
 }
-.ReactVirtualized__Grid__innerScrollContainer{
-  width: 100%!important;
+
+.ReactVirtualized__Grid__innerScrollContainer {
+  width: 100% !important;
   max-width: 100% !important;
 }
