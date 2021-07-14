@@ -24,7 +24,18 @@ const OptionsItem = ({key, styles, option, handler}) => {
                     checked={option.isChecked}
                     onChange={() => handler(option)}
                 />
+                <style JSX>{`
+                 .options__checkbox::before {
+                  content: '';
+                  background-image: url("/public/img/checkMark.svg");
+                  position: absolute;
+                  width: 100%;
+                  height: 100%;
+                  color: black;
+                }
+                `}</style>
             </div>
+
         )
     } else {
         return null
