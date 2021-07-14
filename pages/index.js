@@ -77,7 +77,7 @@ export async function getStaticProps() {
         return result
     }
 
-    const initialProdData = genProdDataArr(2)
+    const initialProdData = genProdDataArr(20)
     const initialNewsData = genNewsDataArr(20)
 
     return {
