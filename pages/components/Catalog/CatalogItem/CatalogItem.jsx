@@ -31,7 +31,7 @@ const CatalogItem = ({setNewData, data}) => {
 
     if (data) {
         return (
-            <li className={style.item}>
+            <div className={style.item}>
                 <div className="wrapper">
                     <Carousel height={220} width={300} data={data.images}/>
 
@@ -46,7 +46,7 @@ const CatalogItem = ({setNewData, data}) => {
                         <button className={style.btn}>Оставить заявку</button>
                     </div>
                 </div>
-            </li>
+            </div>
         )
     } else {
         return null

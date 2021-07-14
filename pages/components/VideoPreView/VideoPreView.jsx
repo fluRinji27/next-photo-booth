@@ -20,7 +20,9 @@ export default function VideoPreView({id, modalHandler}) {
             <div className={style.img}>
                 <Image
                     src={src}
+                    blurDataURL={src}
                     alt="Youtube video"
+                    placeholder="blur"
                     layout="fill"
                 />
             </div>

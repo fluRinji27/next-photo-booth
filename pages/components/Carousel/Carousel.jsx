@@ -1,4 +1,3 @@
-// import Image from 'next/image'
 import React from "react";
 import {
     ButtonBack,
@@ -29,7 +28,6 @@ const Carousel = ({height = 100, width = 100, data}) => {
                             index={i}
                         >
                             <CarouselImage
-                                className={style.image}
                                 key={elem + i}
                                 src={`/img/catalog/${elem}.png`}
                                 alt="Фотбудка"

@@ -61,7 +61,17 @@ body {
   &__inner-slide {
     align-items: center;
   }
-
+  &__image{
+    padding-right: 35px;
+  }
+  &__slide{
+    &[aria-selected="false"] {
+      img {
+        position: absolute;
+        left: -20px;
+      }
+    }
+  }
   &__dot-group {
     display: flex;
     justify-content: center;

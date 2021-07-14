@@ -1,11 +1,15 @@
 import {useState} from "react";
 import Head from 'next/head'
+import dynamic from "next/dynamic";
 import Advantages from "./components/Advantages/Advantages";
 import Header from "./components/Header/Header";
 import Video from "./components/Video/Video";
 import Catalog from "./components/Catalog/Catalog";
-import Faq from "./components/Faq/Faq";
-import News from "./components/News/News";
+// import Faq from "./components/Faq/Faq";
+// import News from "./components/News/News";
+const News = dynamic(() => import('/pages/components/News/News'))
+const Faq = dynamic(() => import('/pages/components/Faq/Faq'))
+
 
 function App({initialProdData, initialNewsData}) {
 

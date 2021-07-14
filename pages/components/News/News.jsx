@@ -43,7 +43,7 @@ const News = ({initialNewsData}) => {
                         <InfiniteLoader
                             isRowLoaded={isRowLoaded}
                             rowCount={initialNewsData.length}
-                        >
+                            loadMoreRows={loadMore}>
                             {({onRowsRendered, registerChild}) => (
                                 <List
                                     ref={registerChild}
