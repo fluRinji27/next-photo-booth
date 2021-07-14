@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import style from '../../../styles/advantages.module.scss'
+import style from '../../../styles/Advantages.module.scss'
 
 export default function Advantages() {
     return (
