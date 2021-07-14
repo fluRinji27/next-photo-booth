@@ -2,11 +2,11 @@ import React from 'react'
 import Image from "next/image";
 import style from '/styles/Catalog/CatalogOptions.module.scss'
 
-const OptionsItem = ({key, styles, option, handler}) => {
+const OptionsItem = ({option, handler}) => {
     if (option) {
         return (
-            <div key={key} style={styles} className={style.options__item}>
-                <div className={style.options__img}>
+            <>
+                <div className={style.img}>
                     <Image
                         src={`/img/catalog/${option.image}.png`}
                         alt={option.title}
@@ -14,28 +14,35 @@ const OptionsItem = ({key, styles, option, handler}) => {
                         height={60}
                     />
                 </div>
-                <div className={style.options__info}>
-                    <p className={style.options__infoItem + ' ' + style.options__text}>{option.title}</p>
-                    <p className={style.options__infoItem + ' ' + style.options__price}>От {option.price} &#8381;</p>
+                <div className={style.info}>
+                    <p className={style.text}>
+                        {option.title}
+                    </p>
+                    <p className={style.price}>
+                        От {option.price} &#8381;
+                    </p>
                 </div>
-                <input
-                    className={style.options__checkbox}
-                    type="checkbox"
-                    checked={option.isChecked}
-                    onChange={() => handler(option)}
-                />
-                <style JSX>{`
-                 .options__checkbox::before {
-                  content: '';
-                  background-image: url("/public/img/checkMark.svg");
-                  position: absolute;
-                  width: 100%;
-                  height: 100%;
-                  color: black;
-                }
-                `}</style>
-            </div>
-
+                <div className={style.input}>
+                    <input
+                        className={style.checkbox}
+                        type="checkbox"
+                        checked={option.isChecked}
+                        onChange={() => handler(option)}
+                    />
+                    {option.isChecked &&
+                    <div
+                        className={style.checked}
+                        onClick={() => handler(option)}
+                    >
+                        <Image
+                            src='/img/checkMark.svg'
+                            width={15}
+                            height={15}
+                            alt='checkMark'
+                        />
+                    </div>}
+                </div>
+            </>
         )
     } else {
         return null
