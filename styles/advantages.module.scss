@@ -1,0 +1,53 @@
+@import "_variables";
+@import "_mixins";
+
+.advantages {
+  margin-top: 62px;
+}
+
+
+.subtitle {
+  margin-top: 24px;
+  @include sourseSans(16px, 400, 21px, 0);
+
+  span {
+    color: $red;
+    text-decoration: underline;
+    text-align: start;
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+
+.item {
+  display: grid;
+  width: 125px;
+  margin-top: 30px;
+}
+
+.icon {
+  position: relative;
+  align-self: center;
+  justify-self: center;
+  width: 50px;
+  height: 50px;
+}
+
+.text {
+  margin-top: 3px;
+  text-align: center;
+  @include robotoRegular(14px, 600, 17px, 0);
+}
+
+.title {
+  color: $red;
+  @include robotoSlab(40px, bold, 50px, 0);
+
+  span {
+    color: $black;
+  }
+}

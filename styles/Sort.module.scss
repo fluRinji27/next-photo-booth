@@ -1,0 +1,29 @@
+@import '_variables';
+@import '_mixins';
+
+.sort {
+  display: flex;
+  align-items: center;
+  margin-top: 1.7em;
+  @include sourseSans(14px,400,16.42px,0);
+
+
+
+  &__label {
+  }
+
+  &__list {
+    color: $gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 7.8em;
+    margin-left: 5px;
+    border: none;
+    appearance: none;
+  }
+
+  &__item {
+    color: $black;
+  }
+}

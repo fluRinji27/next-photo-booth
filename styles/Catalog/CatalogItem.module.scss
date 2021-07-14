@@ -1,0 +1,43 @@
+@import "../_variables";
+@import "../_mixins";
+
+.item {
+  margin-right: 0;
+
+  &__title {
+    margin-top: 16px;
+    @include sourseSans(20.6px, 600, 23px, .2px);
+  }
+
+  &__subtitle {
+    margin-top: 10px;
+    @include sourseSans(12px, 400, 14px, .3px);
+
+    span {
+      color: $gray;
+    }
+  }
+
+  &__time-choice {
+  }
+
+  &__time {
+  }
+
+  &__order {
+  }
+
+  &__price {
+    @include robotoSlab(32px, 500, 42px, 0);
+    color: $black;
+  }
+
+  &__btn {
+    @include robotoRegular(18px, 700, 21px, 0);
+    color: white;
+    border: 1px solid transparent;
+    background-color: #EE3D48;
+    border-radius: 6px;
+
+  }
+}

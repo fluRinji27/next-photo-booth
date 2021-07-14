@@ -1,0 +1,89 @@
+@import "_variables";
+@import '_mixins';
+
+body {
+  box-sizing: border-box;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+.App {
+  max-width: 375px;
+  margin: 0 auto;
+  overflow: auto;
+
+  &_theme_overflow_hidden {
+    overflow: hidden;
+  }
+}
+
+.title {
+  &__h2 {
+    @include robotoSlab(32px, 700, 30px, 0);
+  }
+}
+
+.wrapper {
+  margin: 0 8px;
+}
+
+.main {
+  margin-top: 20px;
+}
+
+.arrow {
+  width: 10px;
+  height: 10px;
+  border-top: 1.5px solid black;
+  border-right: 1.5px solid black;
+  transform: rotate(135deg);
+
+  &_left {
+    transform: rotate(-135deg);
+  }
+
+  &_right {
+    transform: rotate(45deg);
+  }
+}
+
+// Переопределение базовых стилей слайдера
+.carousel {
+  &__inner-slide {
+    align-items: center;
+  }
+
+  &__dot-group {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__dot {
+    margin: 8px;
+    background-color: rgba(213, 218, 224, 1);
+    border: 1px solid transparent;
+    border-radius: 10px;
+
+    span {
+      display: block;
+      height: 1px;
+    }
+  }
+
+  &__dot--selected {
+    background-color: $red;
+
+    span {
+      width: 8px;
+    }
+  }
+}
+
+// Переопределение inline react-virtualize
+.ReactVirtualized__Grid {
+  width: 99% !important;
+}
+.ReactVirtualized__Grid__innerScrollContainer{
+  width: 100%!important;
+  max-width: 100% !important;
+}

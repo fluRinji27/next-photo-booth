@@ -1,0 +1,24 @@
+@import "/styles/_variables";
+
+.dots {
+  position: absolute;
+  z-index: -1;
+  right: -9px;
+  top: -12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+
+  &__row {
+    display: flex;
+  }
+
+  &__item {
+    margin: 1.5px;
+    width: 6.3px;
+    height: 6.3px;
+    border-radius: 100%;
+    background-color: $red;
+  }
+}
