@@ -1,0 +1,41 @@
+@import "_variables";
+@import "_mixins";
+
+.contact {
+  margin-top: 60px;
+}
+
+.item {
+  display: flex;
+  margin: 20px 20px 20px 0;
+
+  &:last-child {
+    .info {
+      border-bottom: none;
+    }
+  }
+}
+
+.info {
+  width: 80%;
+  justify-self: flex-end;
+  align-self: flex-end;
+  margin-left: 20px;
+  border-bottom: 1px solid #D5DAE0;
+  padding-bottom: 20px;
+}
+
+.empty {
+  width: 25px;
+  height: 25px;
+}
+
+.title {
+  @include robotoSlab(20px, 400, 32px, 0);
+  color: $black;
+}
+
+.text {
+  @include sourseSans(18px, 400, 21px, 0);
+  color: #6A6A6A;
+}
