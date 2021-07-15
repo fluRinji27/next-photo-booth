@@ -91,23 +91,23 @@ const Catalog = ({initialData}) => {
             <Sort sortHandler={sortData}/>
 
             {data &&
-            data.map(item => <CatalogItem key={item.id} setNewData={setNewData} data={item}/>) //80
-            //     <InfiniteLoader
-            //         isRowLoaded={isRowLoaded}
-            //         rowCount={data.length}
-            //         loadMoreRows={loadMoreRows}>
-            //         {({onRowsRendered, registerChild}) => (
-            //             <List
-            //                 ref={registerChild}
-            //                 height={765 * data.length}
-            //                 onRowsRendered={onRowsRendered}
-            //                 rowCount={data.length}
-            //                 rowHeight={765}
-            //                 rowRenderer={rowRender}
-            //                 width={330}
-            //             />
-            //         )}
-            //     </InfiniteLoader>
+            // data.map(item => <CatalogItem key={item.id} setNewData={setNewData} data={item}/>) //80
+                <InfiniteLoader
+                    isRowLoaded={isRowLoaded}
+                    rowCount={data.length}
+                    loadMoreRows={loadMoreRows}>
+                    {({onRowsRendered, registerChild}) => (
+                        <List
+                            ref={registerChild}
+                            height={765 * data.length}
+                            onRowsRendered={onRowsRendered}
+                            rowCount={data.length}
+                            rowHeight={765}
+                            rowRenderer={rowRender}
+                            width={330}
+                        />
+                    )}
+                </InfiniteLoader>
             }
         </div>
     )

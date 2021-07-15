@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import Option from '../CatalogOption/Option'
 import Carousel from "../../Carousel/Carousel";
 import ChooseTime from "../ChooseTime/ChooseTime";
-
+import LazyLoad from 'react-lazyload'
 import style from '/styles/Catalog/CatalogItem.module.scss'
 
 const CatalogItem = ({setNewData, data}) => {
@@ -31,20 +31,23 @@ const CatalogItem = ({setNewData, data}) => {
 
     if (data) {
         return (
-            <div className={style.item}>
-                <Carousel height={220} width={300} data={data.images}/>
+            <>
+                <LazyLoad className={style.item}>
+                    <Carousel height={220} width={300} data={data.images}/>
 
-                <h3 className={style.title}>{itemData.title}</h3>
-                <h5
-                    className={style.subtitle}>Размер: <span>{itemData.subtitle}</span>
-                </h5>
-                <Option calcPrice={calcNewPrice} setChecked={setNewItemOptions} options={itemData.options}/>
-                <ChooseTime chooseTime={setNewTime} time={itemData.totalTime}/>
-                <div className={style.order}>
-                    <p className={style.price}>{itemData.price} &#8381;</p>
-                    <button className={style.btn}>Оставить заявку</button>
-                </div>
-            </div>
+                    <h3 className={style.title}>{itemData.title}</h3>
+                    <h5
+                        className={style.subtitle}>Размер: <span>{itemData.subtitle}</span>
+                    </h5>
+                    <Option calcPrice={calcNewPrice} setChecked={setNewItemOptions} options={itemData.options}/>
+                    <ChooseTime chooseTime={setNewTime} time={itemData.totalTime}/>
+                    <div className={style.order}>
+                        <p className={style.price}>{itemData.price} &#8381;</p>
+                        <button className={style.btn}>Оставить заявку</button>
+                    </div>
+                </LazyLoad>
+            </>
+
         )
     } else {
         return null
