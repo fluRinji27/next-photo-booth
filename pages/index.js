@@ -13,10 +13,7 @@ import FooterMap from "./components/Map/FooterMap";
 const Faq = dynamic(() => import('/pages/components/Faq/Faq'))
 const News = dynamic(() => import("/pages/components/News/News"))
 
-
 function App({initialProdData, initialNewsData}) {
-
-    const [isModalOpen, setIsModalOpen] = useState(false)
 
     return (
         <div className='wrapper App'>
@@ -60,26 +57,27 @@ function App({initialProdData, initialNewsData}) {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <Header/>
-            <Video
-                id='qHmB8mZdWBA'
-                isModalActive={isModalOpen}
-                setIsModalOpen={setIsModalOpen}
-            />
+            <Video id='qHmB8mZdWBA'/>
             <Advantages/>
 
             <Catalog initialData={initialProdData}/>
+
             <LazyLoad height={200}>
                 <Faq/>
             </LazyLoad>
+
             <LazyLoad height={200}>
                 <News initialNewsData={initialNewsData}/>
             </LazyLoad>
+
             <LazyLoad once>
                 <Contact/>
             </LazyLoad>
+
             <LazyLoad once>
                 <FooterMap/>
             </LazyLoad>
+
         </div>
     )
 }
@@ -107,6 +105,7 @@ export async function getStaticProps() {
                 subtitle: '2м x 1.5м x 2 м',
                 images: ['room', 'room', 'room', 'room', 'room'],
                 options,
+                initialPrice: 17000,
                 price: 17000, // rub
                 totalTime: 1 // hour
             })
