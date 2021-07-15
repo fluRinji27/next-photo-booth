@@ -19,32 +19,30 @@ const Carousel = ({height = 100, width = 100, data}) => {
             naturalSlideWidth={width}
             naturalSlideHeight={height}
         >
-            <div className={style.wrapper}>
-                <Slider>
-                    {data && data.map((elem, i) => (
-                        <Slide
-                            className={style.item}
-                            key={i}
-                            index={i}
-                        >
-                            <CarouselImage
-                                key={elem + i}
-                                src={`/img/catalog/${elem}.png`}
-                                alt="Фотбудка"
-                                width={100}
-                                height={200}
-                            />
-                        </Slide>))
-                    }
-                </Slider>
-                <ButtonBack className={style.btn + ' ' + style.back}>
-                    <div className="arrow arrow_left "/>
-                </ButtonBack>
-                <ButtonNext className={style.btn + ' ' + style.next}>
-                    <div className="arrow arrow_right"/>
-                </ButtonNext>
-                <DotGroup/>
-            </div>
+            <Slider className={style.wrapper}>
+                {data && data.map((elem, i) => (
+                    <Slide
+                        className={style.item}
+                        key={i}
+                        index={i}
+                    >
+                        <CarouselImage
+                            key={elem + i}
+                            src={`/img/catalog/${elem}.png`}
+                            alt="Фотбудка"
+                            width={100}
+                            height={200}
+                        />
+                    </Slide>))
+                }
+            </Slider>
+            <ButtonBack className={style.btn + ' ' + style.back}>
+                <div className="arrow arrow_left "/>
+            </ButtonBack>
+            <ButtonNext className={style.btn + ' ' + style.next}>
+                <div className="arrow arrow_right"/>
+            </ButtonNext>
+            <DotGroup/>
         </CarouselProvider>
     )
 }

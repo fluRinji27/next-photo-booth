@@ -61,10 +61,16 @@ body {
   &__inner-slide {
     align-items: center;
   }
-  &__image{
+
+  &__image {
     padding-right: 35px;
+
+    img {
+      padding: 0 8px;
+    }
   }
-  &__slide{
+
+  &__slide {
     &[aria-selected="false"] {
       img {
         position: absolute;
@@ -72,6 +78,7 @@ body {
       }
     }
   }
+
   &__dot-group {
     display: flex;
     justify-content: center;
@@ -106,4 +113,8 @@ body {
 .ReactVirtualized__Grid__innerScrollContainer {
   width: 100% !important;
   max-width: 100% !important;
+}
+
+.lazyload-wrapper{
+  width: 100%;
 }

@@ -86,27 +86,28 @@ const Catalog = ({initialData}) => {
     }
 
     return (
-        <div className={'wrapper ' + style.catalog}>
+        <div className={ style.catalog}>
             <h2 className="title title__h2 ">Фотобудки</h2>
             <Sort sortHandler={sortData}/>
 
             {data &&
-            <InfiniteLoader
-                isRowLoaded={isRowLoaded}
-                rowCount={data.length}
-                loadMoreRows={loadMoreRows}>
-                {({onRowsRendered, registerChild}) => (
-                    <List
-                        ref={registerChild}
-                        height={765 * data.length}
-                        onRowsRendered={onRowsRendered}
-                        rowCount={data.length}
-                        rowHeight={765}
-                        rowRenderer={rowRender}
-                        width={330}
-                    />
-                )}
-            </InfiniteLoader>
+            data.map(item => <CatalogItem key={item.id} setNewData={setNewData} data={item}/>) //80
+            //     <InfiniteLoader
+            //         isRowLoaded={isRowLoaded}
+            //         rowCount={data.length}
+            //         loadMoreRows={loadMoreRows}>
+            //         {({onRowsRendered, registerChild}) => (
+            //             <List
+            //                 ref={registerChild}
+            //                 height={765 * data.length}
+            //                 onRowsRendered={onRowsRendered}
+            //                 rowCount={data.length}
+            //                 rowHeight={765}
+            //                 rowRenderer={rowRender}
+            //                 width={330}
+            //             />
+            //         )}
+            //     </InfiniteLoader>
             }
         </div>
     )

@@ -6,14 +6,13 @@ const OptionsItem = ({option, handler}) => {
     if (option) {
         return (
             <>
-                <div className={style.img}>
-                    <Image
-                        src={`/img/catalog/${option.image}.png`}
-                        alt={option.title}
-                        width={60}
-                        height={60}
-                    />
-                </div>
+                <Image
+                    className={style.img}
+                    src={`/img/catalog/${option.image}.png`}
+                    alt={option.title}
+                    width={60}
+                    height={60}
+                />
                 <div className={style.info}>
                     <p className={style.text}>
                         {option.title}

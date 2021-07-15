@@ -2,10 +2,10 @@
 @import "../_mixins";
 
 .item {
+  position: relative;
   margin-right: 0;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
   width: 100%;
-
 }
 
 .title {

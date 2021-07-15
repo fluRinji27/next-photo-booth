@@ -4,6 +4,7 @@ import NewsItem from "./NewsItem";
 
 import 'react-virtualized/styles.css';
 import styles from '/styles/News.module.scss'
+import LazyLoad from 'react-lazyload'
 
 
 const News = ({initialNewsData}) => {
@@ -15,13 +16,13 @@ const News = ({initialNewsData}) => {
 
         function rowRenderer({key, index, style}) {
             return (
-                <div
-                    key={key}
-                    style={style}
-                    className={styles.item}
-                >
-                    <NewsItem data={initialNewsData[index]}/>
-                </div>
+                    <div
+                        key={key}
+                        style={style}
+                        className={styles.item}
+                    >
+                        <NewsItem data={initialNewsData[index]}/>
+                    </div>
             )
         }
 
