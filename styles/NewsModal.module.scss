@@ -1,0 +1,39 @@
+@import "_variables";
+@import "_mixins";
+
+.main {
+  @include sourseSans(24px, 600, 28px, 0);
+}
+
+.header {
+}
+
+.preTitle {
+  margin: 12px 0;
+  display: flex;
+}
+
+.category {
+  width: 100%;
+  display: inline-block;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: $red;
+  float: left;
+}
+
+.date {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 14px;
+  color: #6A6A6A;
+  float: right;
+
+}
+
+.text {
+  margin-top: 12px;
+  overflow: auto;
+  max-height: 200px;
+}

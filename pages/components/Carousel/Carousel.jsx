@@ -28,7 +28,7 @@ const Carousel = ({height = 100, width = 100, data}) => {
                     >
                         <CarouselImage
                             key={elem + i}
-                            src={`/img/catalog/${elem}.png`}
+                            src={`/img/carousel/${elem}.png`}
                             alt="Фотбудка"
                             width={100}
                             height={200}

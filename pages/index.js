@@ -119,7 +119,7 @@ export async function getStaticProps() {
                 id: i + 1,
                 category: 'Фотобудка',
                 date: JSON.stringify(new Date()),
-                images: ['man', 'photo', 'man', 'photo', 'photo'],
+                images: ['man-min', 'photo-min', 'man-min', 'photo-min', 'photo-min'],
                 title: ' Фотобудка с ширмой',
                 shortText: 'У нас есть широчайший ассортимент фотобудок на все случаи жизни',
                 text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'

@@ -5,10 +5,14 @@ import NewsItem from "./NewsItem";
 import 'react-virtualized/styles.css';
 import styles from '/styles/News.module.scss'
 import LazyLoad from 'react-lazyload'
+import Modal from "../Modal/Modal";
+import NewsModal from "./NewsModal";
 
 
 const News = ({initialNewsData}) => {
         const [count, setCount] = useState(3)
+        const [isModalActive, setIsModalActive] = useState(false)
+        const [currentNews, setCurrentNews] = useState(null)
 
         function isRowLoaded({index}) {
             return !!initialNewsData[index];
@@ -16,13 +20,23 @@ const News = ({initialNewsData}) => {
 
         function rowRenderer({key, index, style}) {
             return (
-                    <div
-                        key={key}
-                        style={style}
-                        className={styles.item}
-                    >
-                        <NewsItem data={initialNewsData[index]}/>
-                    </div>
+                <div
+                    key={key}
+                    style={style}
+                    className={styles.item}
+                    onClick={() => {
+                        console.log('click')
+                        setCurrentNews(initialNewsData[index])
+                        setIsModalActive(true)
+                    }}
+                >
+                    <NewsItem
+                        data={initialNewsData[index]}
+                        dateToString={dateToString}
+                        setCurrentItem={setCurrentNews}
+                        setIsModalActive={setIsModalActive}
+                    />
+                </div>
             )
         }
 
@@ -35,10 +49,40 @@ const News = ({initialNewsData}) => {
             }
         }
 
+        const months = [
+            'Января',
+            'Февраля',
+            'Марта',
+            'Апреля',
+            'Мая',
+            'Июня',
+            'Июля',
+            'Августа',
+            'Сентября',
+            'Октября',
+            'Ноября',
+            'Декабря'
+        ]
+        const dateToString = jsonDate => {
+            const date = new Date(JSON.parse(jsonDate))
+            return `${date.getDate() + ' ' + months[date.getMonth()] + ' ' + date.getFullYear()}`
+        }
+
         return (
             <div className={styles.news}>
                 <h4 className='preTitle'>Почему выбирают нас?</h4>
                 <h2 className="title title__h2">Новости</h2>
+                {isModalActive &&
+                <Modal
+                    isActive={isModalActive}
+                    modalHandler={setIsModalActive}
+                >
+                    {<NewsModal
+                        data={currentNews}
+                        toDate={dateToString}
+                    />}
+                </Modal>}
+
                 {initialNewsData && (
                     <>
                         <InfiniteLoader
