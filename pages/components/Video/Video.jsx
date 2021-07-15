@@ -3,15 +3,17 @@ import VideoPreView from '../VideoPreView/VideoPreView'
 import Modal from '../Modal/Modal'
 
 import style from '/styles/Video.module.scss'
+import {useState} from "react";
 
-const Video = ({id, isModalActive, setIsModalOpen}) => {
+const Video = ({id}) => {
+    const [isModalOpen, setIsModalOpen] = useState(false)
 
     return (
         <div className={style.video}>
             <div className={style.wrapper}>
                 <Dots rows={5} collumns={9}/>
                 <VideoPreView id={id} modalHandler={setIsModalOpen}/>
-                <Modal isActive={isModalActive} modalHandler={setIsModalOpen}>
+                <Modal isActive={isModalOpen} modalHandler={setIsModalOpen}>
                     <div className={style.modal}>
                         <iframe
                             className={style.content}

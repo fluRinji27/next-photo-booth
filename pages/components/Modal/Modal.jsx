@@ -19,17 +19,21 @@ export default function Modal({isActive, modalHandler, children}) {
 
     if (isModalActive) {
         return (
-            <div className={style.Modal} onClick={() => {
-                setIsModalActive(false)
-                modalHandler(false)
-            }}>
-                <div className={style.Modal__button}>
+            <div className={style.Modal}>
+                <div
+                    className={style.Modal__button}
+                    onClick={() => {
+                        setIsModalActive(false)
+                        modalHandler(false)
+                    }}>
                     <Image
                         src={'/img/close.svg'}
                         layout="fill"
                         objectFit="contain"/>
                 </div>
-                {children}
+                <div className={style.wrapper}>
+                    {children}
+                </div>
             </div>
         )
     }

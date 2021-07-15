@@ -7,7 +7,7 @@
   height: 100vh;
   overflow: hidden;
   z-index: 10;
-  background-color: #eaeaea;
+  background-color: #fff;
 
   &__button{
     position: absolute;
@@ -17,4 +17,9 @@
     height: 20px;
     cursor: pointer;
   }
+}
+.wrapper{
+  max-width: 375px;
+  height: 100%;
+  margin: 0 auto;
 }
