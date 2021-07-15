@@ -2,10 +2,13 @@ import {useState} from "react";
 import Head from 'next/head'
 import dynamic from "next/dynamic";
 import LazyLoad from 'react-lazyload'
+
 import Advantages from "./components/Advantages/Advantages";
 import Header from "./components/Header/Header";
 import Video from "./components/Video/Video";
 import Catalog from "./components/Catalog/Catalog";
+import Contact from "./components/Contact/Contact";
+import FooterMap from "./components/Map/FooterMap";
 
 const Faq = dynamic(() => import('/pages/components/Faq/Faq'))
 const News = dynamic(() => import("/pages/components/News/News"))
@@ -63,12 +66,19 @@ function App({initialProdData, initialNewsData}) {
                 setIsModalOpen={setIsModalOpen}
             />
             <Advantages/>
+
             <Catalog initialData={initialProdData}/>
-            <LazyLoad height={200} once>
+            <LazyLoad height={200}>
                 <Faq/>
             </LazyLoad>
-            <LazyLoad height={200} once>
+            <LazyLoad height={200}>
                 <News initialNewsData={initialNewsData}/>
+            </LazyLoad>
+            <LazyLoad once>
+                <Contact/>
+            </LazyLoad>
+            <LazyLoad once>
+                <FooterMap/>
             </LazyLoad>
         </div>
     )
