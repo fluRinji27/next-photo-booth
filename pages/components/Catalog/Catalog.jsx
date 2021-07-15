@@ -1,22 +1,38 @@
 import React, {useEffect, useState} from 'react'
 import Sort from '../Sort/Sort'
-import CatalogItem from './CatalogItem/CatalogItem'
+import CatalogItem from './CatalogItem'
 
 import style from '/styles/Catalog/Catalog.module.scss'
 import {InfiniteLoader, List} from "react-virtualized";
+import Modal from "../Modal/Modal";
+import CatalogSubmitModal from "./CatalogSubmitModal";
 
 const Catalog = ({initialData}) => {
-
     const [data, setData] = useState([])
-
-    const setNewData = item => {
-        setData(data.map(el => {
-            if (el.id === item.id) {
-                return item
-            }
-            return el
-        }))
+    const [isModalActive, setIsModalActive] = useState(false)
+    const [itemInModal, setItemInModal] = useState({})
+////// INFINITY LOADER
+    const rowRender = ({index}) => {
+        return (<CatalogItem
+            isModalActive={isModalActive}
+            setIsModalActive={setIsModalActive}
+            key={data[index].id}
+            setNewData={setNewData}
+            data={data[index]}
+            setItemInModal={setItemInModal}
+        />)
     }
+
+    function isRowLoaded({index}) {
+        return !!data[index];
+    }
+
+    const loadMoreRows = ({startIndex, stopIndex}) => {
+        return new Promise();
+    }
+////// INFINITY LOADER
+
+    const setNewData = item => setData(data.map(el => el.id === item.id ? item : el))
 
     const sortData = (type) => {
         switch (type) {
@@ -32,27 +48,20 @@ const Catalog = ({initialData}) => {
         }
     }
 
+
     useEffect(() => {
         setData(initialData)
     }, [])
-    const rowRender = ({index}) => {
-        return (<CatalogItem key={data[index].id} setNewData={setNewData} data={data[index]}/>)
 
-    }
-
-    function isRowLoaded({index}) {
-        return !!data[index];
-    }
-
-    const loadMoreRows = ({startIndex, stopIndex}) => {
-        return new Promise();
-    }
 
     return (
         <div className={style.catalog}>
             <h2 className="title title__h2 ">Фотобудки</h2>
             <Sort sortHandler={sortData}/>
-
+            {isModalActive &&
+            <Modal isActive={isModalActive} modalHandler={setIsModalActive}>
+                <CatalogSubmitModal data={itemInModal} closeModal={setIsModalActive}/>
+            </Modal>}
             {data &&
             <InfiniteLoader
                 isRowLoaded={isRowLoaded}
