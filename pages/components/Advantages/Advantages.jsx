@@ -16,6 +16,7 @@ export default function Advantages() {
                     <div className={style.icon}>
                         <Image
                             src='/img/infinite.svg'
+                            alt='Безлимитная печать фото'
                             layout="fill"
                             objectFit="contain"
                         />
@@ -28,6 +29,7 @@ export default function Advantages() {
                     <div className={style.icon}>
                         <Image
                             src='/img/mustachesMask.svg'
+                            alt='Фотореквизит в наличии'
                             layout="fill"
                             objectFit="contain"
                         />
@@ -44,6 +46,7 @@ export default function Advantages() {
                     <div className={style.icon}>
                         <Image
                             src='/img/photoCards.svg'
+                            alt='Фотоотчет в электронном виде'
                             layout='fill'
                             objectFit='contain'
                         />
@@ -56,6 +59,7 @@ export default function Advantages() {
                     <div className={style.icon}>
                         <Image
                             src='/img/price.svg'
+                            alt='Цены ниже рынка'
                             layout='fill'
                             objectFit='contain'
                         />
@@ -66,7 +70,6 @@ export default function Advantages() {
                     </p>
                 </div>
             </div>
-
         </div>
     )
 }
