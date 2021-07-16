@@ -62,7 +62,7 @@
 }
 
 .price {
-  @include robotoSlab(32px, 500, 42px, 0);
+  @include robotoSlab(30px, 500, 42px, 0);
   color: $black;
 }
 
