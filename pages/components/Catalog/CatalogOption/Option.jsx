@@ -7,16 +7,21 @@ import styles from '/styles/Catalog/CatalogOptions.module.scss'
 
 const Option = ({calcPrice, options, setChecked}) => {
     const [optionsData, setOptionsData] = useState(options)
-    const [isLoaded, setLoaded] = useState(false)
 
     const checkedHandler = item => {
         setOptionsData(() => optionsData.map(el => {
             if (item === el) {
-                calcPrice(el.price, !el.isChecked)
                 return {...el, isChecked: !el.isChecked}
             }
             return el
         }))
+        optionsData.map(el => {
+            if (item === el) {
+                calcPrice(el.price, !el.isChecked)
+            }
+        })
+
+        setChecked(optionsData)
     }
 
     const Row = ({index, key, style}) => (
@@ -32,16 +37,6 @@ const Option = ({calcPrice, options, setChecked}) => {
             />
         </div>
     )
-
-    useEffect(() => {
-        setLoaded(true)
-    }, [])
-
-    useEffect(() => {
-        if (isLoaded) {
-            setChecked(optionsData)
-        }
-    }, [optionsData])
 
     return (
         <div className={styles.options}>
