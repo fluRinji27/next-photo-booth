@@ -16,7 +16,7 @@ function CatalogSubmitModal({data, closeModal}) {
     useEffect(() => {
         const filteredOptions = options.filter(el => el.isChecked)
         filteredOptions.length > 0 ? filteredOptions.map(el => setOptionsPrice(prev => prev + el.price)) : 0
-    }, [options])
+    }, [])
 
     return (
         <div className={style.catalogItemModal}>

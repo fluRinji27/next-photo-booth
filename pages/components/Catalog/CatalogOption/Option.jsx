@@ -41,7 +41,7 @@ const Option = ({calcPrice, options, setChecked}) => {
         if (isLoaded) {
             setChecked(optionsData)
         }
-    }, [isLoaded, setLoaded, setChecked, optionsData])
+    }, [optionsData])
 
     return (
         <div className={styles.options}>

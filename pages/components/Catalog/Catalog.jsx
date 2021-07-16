@@ -53,7 +53,7 @@ const Catalog = ({initialData}) => {
 
     useEffect(() => {
         setData(initialData)
-    }, [initialData])
+    }, [])
 
 
     return (

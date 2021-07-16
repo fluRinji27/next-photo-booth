@@ -42,7 +42,7 @@ const CatalogItem = ({setItemInModal, setIsModalActive, setNewData, data}) => {
         if (JSON.stringify(itemData) !== JSON.stringify(data)) {
             setNewData(itemData)
         }
-    }, [data, setNewData, itemData])
+    }, [data])
 
     if (data) {
         return (
