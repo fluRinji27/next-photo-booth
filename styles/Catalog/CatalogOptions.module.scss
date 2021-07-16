@@ -3,6 +3,8 @@
 
 .options {
   margin-top: 20px;
+  width: 100%;
+
 }
 
 .title {
@@ -110,4 +112,8 @@
 
 .input {
   position: relative;
+}
+
+@media screen and (max-width: 345px) {
+
 }

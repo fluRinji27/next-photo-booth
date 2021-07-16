@@ -1,11 +1,15 @@
-@import "_variables";
-@import "_mixins";
+@import "styles/_variables";
+@import "styles/_mixins";
 
 .main {
   @include sourseSans(24px, 600, 28px, 0);
+  margin: 60px 20px;
+  background-color: white;
+
 }
 
 .header {
+  padding: 6px;
 }
 
 .preTitle {
@@ -33,7 +37,9 @@
 }
 
 .text {
+  font-size: 15px;
   margin-top: 12px;
   overflow: auto;
-  max-height: 200px;
+  padding: 6px;
+  max-height: 100px;
 }

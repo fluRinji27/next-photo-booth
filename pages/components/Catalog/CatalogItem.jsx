@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react'
+
 import Option from './CatalogOption/Option'
 import Carousel from "../Carousel/Carousel";
 import ChooseTime from "./ChooseTime/ChooseTime";
 import LazyLoad from 'react-lazyload'
-import style from '/styles/Catalog/CatalogItem.module.scss'
 
+import style from '/styles/Catalog/CatalogItem.module.scss'
 
 const CatalogItem = ({setItemInModal, setIsModalActive, setNewData, data}) => {
 
@@ -41,12 +42,12 @@ const CatalogItem = ({setItemInModal, setIsModalActive, setNewData, data}) => {
         if (JSON.stringify(itemData) !== JSON.stringify(data)) {
             setNewData(itemData)
         }
-    }, [itemData])
+    }, [data, setNewData, itemData])
 
     if (data) {
         return (
             <>
-                <LazyLoad className={style.item}>
+                <LazyLoad className={style.item} once>
 
                     <Carousel height={220} width={300} data={data.images}/>
 

@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+
 import style from "/styles/Faq.module.scss";
 
 const FaqItem = ({title, text}) => {

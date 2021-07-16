@@ -1,18 +1,20 @@
 import React from 'react'
 import Image from "next/image";
+
 import style from '/styles/Catalog/CatalogOptions.module.scss'
 
 const OptionsItem = ({option, handler}) => {
     if (option) {
         return (
             <>
-                <Image
-                    className={style.img}
-                    src={`/img/catalog/${option.image}.png`}
-                    alt={option.title}
-                    width={60}
-                    height={60}
-                />
+                <div className={style.img}>
+                    <Image
+                        src={`/img/catalog/${option.image}.png`}
+                        alt={option.title}
+                        width={60}
+                        height={60}
+                    />
+                </div>
                 <div className={style.info}>
                     <p className={style.text}>
                         {option.title}

@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react'
 
 import style from '/styles/Modal.module.scss'
 
-export default function Modal({isActive, modalHandler, children}) {
+export default function Modal({isActive, modalHandler, children, dataContext}) {
     const [isModalActive, setIsModalActive] = useState(false)
 
     useEffect(() => {
@@ -19,7 +19,7 @@ export default function Modal({isActive, modalHandler, children}) {
 
     if (isModalActive) {
         return (
-            <div className={style.Modal}>
+            <div className={style.Modal} data-context={dataContext ? dataContext : 'any'}>
                 <div
                     className={style.Modal__button}
                     onClick={() => {
@@ -29,7 +29,9 @@ export default function Modal({isActive, modalHandler, children}) {
                     <Image
                         src={'/img/close.svg'}
                         layout="fill"
-                        objectFit="contain"/>
+                        objectFit="contain"
+                        alt='close modal'
+                    />
                 </div>
                 <div className={style.wrapper}>
                     {children}

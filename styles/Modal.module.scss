@@ -1,4 +1,13 @@
 @import "_variables";
+
+.Modal[data-context="video"] {
+  background: rgba(0, 0, 0, 0.48);
+}
+
+.Modal[data-context="news"] {
+  background: rgba(0, 0, 0, 0.48);
+}
+
 .Modal {
   position: fixed;
   top: 0;
@@ -7,9 +16,9 @@
   height: 100vh;
   overflow: hidden;
   z-index: 10;
-  background-color: #fff;
+  background: #fff;
 
-  &__button{
+  &__button {
     position: absolute;
     right: 20px;
     margin: 20px 0 20px 20px;
@@ -18,8 +27,10 @@
     cursor: pointer;
   }
 }
-.wrapper{
+
+.wrapper {
   max-width: 375px;
   height: 100%;
   margin: 0 auto;
+  overflow: hidden;
 }

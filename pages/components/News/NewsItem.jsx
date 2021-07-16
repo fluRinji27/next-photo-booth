@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from "next/image";
 
-import style from '/styles/News.module.scss'
+import style from '/styles/News/News.module.scss'
 
 const NewsItem = ({data, dateToString}) => {
 
@@ -11,8 +11,11 @@ const NewsItem = ({data, dateToString}) => {
             {data && (
                 <>
                     <div className={style.image}>
-                        <Image src={`/img/carousel/${data.images[0]}.png`} layout='fill'/>
-                        {/*<Carousel height={220} width={300} data={images}/>*/}
+                        <Image
+                            src={`/img/carousel/${data.images[0]}.png`}
+                            layout='fill'
+                            alt={data.title}
+                        />
                     </div>
                     <div className={style.info}>
                         <h4 className={style.preTitle}>{data.category}</h4>

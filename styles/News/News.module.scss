@@ -1,5 +1,5 @@
-@import "_mixins";
-@import "_variables";
+@import "styles/_mixins";
+@import "styles/_variables";
 
 .news {
   @include sourseSans(12px, 500, 14px, 0);

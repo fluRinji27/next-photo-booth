@@ -3,7 +3,7 @@ import {InfiniteLoader, List} from 'react-virtualized'
 import NewsItem from "./NewsItem";
 
 import 'react-virtualized/styles.css';
-import styles from '/styles/News.module.scss'
+import styles from '/styles/News/News.module.scss'
 import LazyLoad from 'react-lazyload'
 import Modal from "../Modal/Modal";
 import NewsModal from "./NewsModal";
@@ -76,6 +76,7 @@ const News = ({initialNewsData}) => {
                 <Modal
                     isActive={isModalActive}
                     modalHandler={setIsModalActive}
+                    dataContext="news"
                 >
                     {<NewsModal
                         data={currentNews}
@@ -88,7 +89,8 @@ const News = ({initialNewsData}) => {
                         <InfiniteLoader
                             isRowLoaded={isRowLoaded}
                             rowCount={initialNewsData.length}
-                            loadMoreRows={loadMore}>
+                            loadMoreRows={loadMore}
+                        >
                             {({onRowsRendered, registerChild}) => (
                                 <List
                                     ref={registerChild}

@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react'
+import {InfiniteLoader, List} from "react-virtualized";
+import LazyLoad from 'react-lazyload'
+
 import Sort from '../Sort/Sort'
 import CatalogItem from './CatalogItem'
-
-import style from '/styles/Catalog/Catalog.module.scss'
-import {InfiniteLoader, List} from "react-virtualized";
 import Modal from "../Modal/Modal";
 import CatalogSubmitModal from "./CatalogSubmitModal";
+
+import style from '/styles/Catalog/Catalog.module.scss'
 
 const Catalog = ({initialData}) => {
     const [data, setData] = useState([])
@@ -51,36 +53,43 @@ const Catalog = ({initialData}) => {
 
     useEffect(() => {
         setData(initialData)
-    }, [])
+    }, [initialData])
 
 
     return (
-        <div className={style.catalog}>
-            <h2 className="title title__h2 ">Фотобудки</h2>
-            <Sort sortHandler={sortData}/>
-            {isModalActive &&
-            <Modal isActive={isModalActive} modalHandler={setIsModalActive}>
-                <CatalogSubmitModal data={itemInModal} closeModal={setIsModalActive}/>
-            </Modal>}
-            {data &&
-            <InfiniteLoader
-                isRowLoaded={isRowLoaded}
-                rowCount={data.length}
-                loadMoreRows={loadMoreRows}>
-                {({onRowsRendered, registerChild}) => (
-                    <List
-                        ref={registerChild}
-                        height={780 * data.length}
-                        onRowsRendered={onRowsRendered}
-                        rowCount={data.length}
-                        rowHeight={780}
-                        rowRenderer={rowRender}
-                        width={330}
-                    />
-                )}
-            </InfiniteLoader>
-            }
-        </div>
+        <LazyLoad>
+            <div className={style.catalog}>
+                <h2 className="title title__h2 ">Фотобудки</h2>
+                <Sort sortHandler={sortData}/>
+                {isModalActive &&
+                <Modal
+                    isActive={isModalActive}
+                    modalHandler={setIsModalActive}
+                    dataContext="submit"
+                >
+                    <CatalogSubmitModal data={itemInModal} closeModal={setIsModalActive}/>
+                </Modal>}
+                {data &&
+                <InfiniteLoader
+                    isRowLoaded={isRowLoaded}
+                    rowCount={data.length}
+                    loadMoreRows={loadMoreRows}
+                >
+                    {({onRowsRendered, registerChild}) => (
+                        <List
+                            ref={registerChild}
+                            height={760 * data.length}
+                            onRowsRendered={onRowsRendered}
+                            rowCount={data.length}
+                            rowHeight={760}
+                            rowRenderer={rowRender}
+                            width={330}
+                        />
+                    )}
+                </InfiniteLoader>
+                }
+            </div>
+        </LazyLoad>
     )
 }
 

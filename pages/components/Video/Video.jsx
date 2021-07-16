@@ -13,7 +13,11 @@ const Video = ({id}) => {
             <div className={style.wrapper}>
                 <Dots rows={5} collumns={9}/>
                 <VideoPreView id={id} modalHandler={setIsModalOpen}/>
-                <Modal isActive={isModalOpen} modalHandler={setIsModalOpen}>
+                <Modal
+                    isActive={isModalOpen}
+                    modalHandler={setIsModalOpen}
+                    dataContext="video"
+                >
                     <div className={style.modal}>
                         <iframe
                             className={style.content}

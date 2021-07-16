@@ -105,16 +105,26 @@ body {
   }
 }
 
-// Переопределение inline react-virtualize
-.ReactVirtualized__Grid {
-  width: 99% !important;
-}
+.carousel[data-context="news"] {
+  overflow:initial;
+  .carousel__image {
+    padding-right: 0px !important;
+  }
 
-.ReactVirtualized__Grid__innerScrollContainer {
-  width: 100% !important;
-  max-width: 100% !important;
-}
+  // Переопределение inline react-virtualize
+  .ReactVirtualized__Grid {
+    width: 99% !important;
+  }
 
-.lazyload-wrapper{
-  width: 100%;
+  .ReactVirtualized__Grid__innerScrollContainer {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .lazyload-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+  }
 }

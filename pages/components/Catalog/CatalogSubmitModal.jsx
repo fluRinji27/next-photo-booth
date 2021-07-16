@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import PhoneInput from 'react-phone-number-input/input'
 
 import 'react-phone-number-input/style.css'
-import style from '/styles/CatalogSubmitModal.module.scss'
+import style from '/styles/Catalog/CatalogSubmitModal.module.scss'
 
 function CatalogSubmitModal({data, closeModal}) {
     const {title, subtitle, options, totalTime, initialPrice} = data ? data : []
@@ -16,7 +16,7 @@ function CatalogSubmitModal({data, closeModal}) {
     useEffect(() => {
         const filteredOptions = options.filter(el => el.isChecked)
         filteredOptions.length > 0 ? filteredOptions.map(el => setOptionsPrice(prev => prev + el.price)) : 0
-    }, [])
+    }, [options])
 
     return (
         <div className={style.catalogItemModal}>
@@ -77,8 +77,12 @@ function CatalogSubmitModal({data, closeModal}) {
             <div className={style.options}>
                 {options && options.filter(el => el.isChecked).map(el => (
                     <div key={el.id} className={style.option}>
-                        <h4 className={style.itemParams__title}>{el.title}</h4>
-                        <h4 className={style.itemParams__price}>{el.price} &#8381;</h4>
+                        <h4 className={style.itemParams__title}>
+                            {el.title}
+                        </h4>
+                        <h4 className={style.itemParams__price}>
+                            {el.price} &#8381;
+                        </h4>
                     </div>))}
             </div>
             <h2 className={style.totalPrice}>Итого: <span>{(initialPrice * currentTime) + optionsPrice} &#8381;</span>

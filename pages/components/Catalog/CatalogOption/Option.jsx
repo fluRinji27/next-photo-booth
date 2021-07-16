@@ -41,7 +41,7 @@ const Option = ({calcPrice, options, setChecked}) => {
         if (isLoaded) {
             setChecked(optionsData)
         }
-    }, [optionsData])
+    }, [isLoaded, setLoaded, setChecked, optionsData])
 
     return (
         <div className={styles.options}>
@@ -51,7 +51,7 @@ const Option = ({calcPrice, options, setChecked}) => {
             <List
                 className={styles.list}
                 rowCount={optionsData.length}
-                width={300}
+                width={320}
                 height={180}
                 rowHeight={90}
                 rowRenderer={Row}

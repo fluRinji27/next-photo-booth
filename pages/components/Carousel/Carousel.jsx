@@ -9,15 +9,16 @@ import {
 } from 'pure-react-carousel'
 
 import 'pure-react-carousel/dist/react-carousel.es.css'
-import style from '/styles/Carousel.module.scss'
+import style from '/styles/Carousel/Carousel.module.scss'
 
-const Carousel = ({height = 100, width = 100, data}) => {
+const Carousel = ({height = 100, width = 100, data, dataContext}) => {
     return (
         <CarouselProvider
             className={style.slider}
             totalSlides={data ? data.length : 5}
             naturalSlideWidth={width}
             naturalSlideHeight={height}
+            data-context={dataContext ? dataContext : 'any'}
         >
             <Slider className={style.wrapper}>
                 {data && data.map((elem, i) => (

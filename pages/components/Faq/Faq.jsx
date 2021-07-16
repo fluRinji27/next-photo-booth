@@ -1,7 +1,8 @@
 import React from 'react';
 
-import style from '/styles/Faq.module.scss'
 import FaqItem from "./FaqItem";
+
+import style from '/styles/Faq.module.scss'
 
 const Faq = () => {
     return (

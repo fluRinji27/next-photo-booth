@@ -1,12 +1,13 @@
 import React from 'react';
 import Carousel from "../Carousel/Carousel";
-import style from '/styles/NewsModal.module.scss'
+
+import style from '/styles/News/NewsModal.module.scss'
 
 const NewsModal = ({data, toDate}) => {
     const {category, date, title, text, images} = data ? data : []
     return (
         <div className={style.main}>
-            <Carousel height={320} width={320} data={images}/>
+            <Carousel height={320} width={320} data={images} dataContext='news'/>
             <div className={style.header}>
                 <div className={style.preTitle}>
                     <h4 className={style.category}>
