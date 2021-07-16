@@ -3,7 +3,7 @@ import Carousel from "../Carousel/Carousel";
 import style from '/styles/NewsModal.module.scss'
 
 const NewsModal = ({data, toDate}) => {
-    const {category, date, title, text, images} = data
+    const {category, date, title, text, images} = data ? data : []
     return (
         <div className={style.main}>
             <Carousel height={320} width={320} data={images}/>
@@ -12,7 +12,7 @@ const NewsModal = ({data, toDate}) => {
                     <h4 className={style.category}>
                         {category}
                         <strong className={style.date}>
-                            {toDate(date)}
+                            {toDate && toDate(date)}
                         </strong>
                     </h4>
                 </div>

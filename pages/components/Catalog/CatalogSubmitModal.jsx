@@ -5,7 +5,7 @@ import 'react-phone-number-input/style.css'
 import style from '/styles/CatalogSubmitModal.module.scss'
 
 function CatalogSubmitModal({data, closeModal}) {
-    const {title, subtitle, options, totalTime, initialPrice} = data
+    const {title, subtitle, options, totalTime, initialPrice} = data ? data : []
 
     const [inputValue, setInputValue] = useState('')
     const [optionsPrice, setOptionsPrice] = useState(0)
@@ -75,11 +75,11 @@ function CatalogSubmitModal({data, closeModal}) {
                 </select>
             </div>
             <div className={style.options}>
-                {options && options.filter(el => el.isChecked).map(el => (<div
-                    className={style.option}>
-                    <h4 className={style.itemParams__title}>{el.title}</h4>
-                    <h4 className={style.itemParams__price}>{el.price} &#8381;</h4>
-                </div>))}
+                {options && options.filter(el => el.isChecked).map(el => (
+                    <div key={el.id} className={style.option}>
+                        <h4 className={style.itemParams__title}>{el.title}</h4>
+                        <h4 className={style.itemParams__price}>{el.price} &#8381;</h4>
+                    </div>))}
             </div>
             <h2 className={style.totalPrice}>Итого: <span>{(initialPrice * currentTime) + optionsPrice} &#8381;</span>
             </h2>
